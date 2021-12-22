@@ -55,15 +55,15 @@ function game() {
         } else if (result.startsWith("You Lose")) {
             computerCount += 1;
         }
-        console.log(`The current score is ${playerCount}:${computerCount}. Keep your head in the game!`)
+         if (playerCount < 5 && computerCount < 5) {
+             console.log(`The current score is ${playerCount}:${computerCount}. Keep your head in the game!`);
+        } else {
+            console.log(`The final score is ${playerCount}:${computerCount}`);
+        }
     }
-
     if (playerCount === 5) {
         console.log("Congratulations! You beat the computer! You are the smartest human alive!")
     } else {
         console.log("Good try! The computer got you this time. Try again soon!")
     }
 }
-
-
-
