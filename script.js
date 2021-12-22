@@ -3,36 +3,27 @@ function computerPlay() {
     return gameMoves[Math.floor(Math.random() * gameMoves.length)]
 }
 
-// playerSelection = prompt("Which do you choose: Rock, Paper, or Scissors");
-// computerSelection = computerPlay().toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerSelection = computerSelection.toLowerCase();
     let drawPrompt = "Draw! Try again!";
     if (playerSelection === computerSelection) {
-        console.log(drawPrompt);
-    }
-        else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-            return "You Win! Rock beats Scissors";
-    }
-        else if (playerSelection === 'rock' && computerSelection === 'paper') {
-            return "You Lose! Paper beats Rock";
-    }
-        else if (playerSelection === 'paper' && computerSelection === 'rock') {
-            return "You Win! Paper beats Rock";
-    }
-        else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-            return "You Lose! Scissors beats Paper";
-    }
-        else if (playerSelection === 'scissors' && ComputerSelection === 'paper') {
-            return "You Win! Scissors beats Paper";
-    }
-        else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-            return "You Lose! Rock beats Scissors";
-    }
-        else {
-            return "Something has gone terribly wrong.";
+        return drawPrompt;
+    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+        return "You Win! Rock beats Scissors";
+    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+        return "You Lose! Paper beats Rock";
+    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+        return "You Win! Paper beats Rock";
+    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+        return "You Lose! Scissors beats Paper";
+    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+        return "You Win! Scissors beats Paper";
+    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+        return "You Lose! Rock beats Scissors";
+    } else {
+        return "Something has gone terribly wrong.";
     }
 }
 
@@ -53,14 +44,25 @@ function game() {
     let playerCount = 0;
     let computerCount = 0;
 
-    while (playerCount < 5 || computerCount < 5) {
+    while (playerCount < 5 && computerCount < 5) {
         let playerSelection = prompt("Which do you choose: Rock, Paper, or Scissors");
         let computerSelection = computerPlay();
-        
+        let result = playRound(playerSelection, computerSelection);
+        console.log(result)
 
-
+        if (result.startsWith("You Win")) {  // check if there is a starts with
+            playerCount += 1;
+        } else if (result.startsWith("You Lose")) {
+            computerCount += 1;
+        }
+        console.log(`The current score is ${playerCount}:${computerCount}. Keep your head in the game!`)
     }
 
+    if (playerCount === 5) {
+        console.log("Congratulations! You beat the computer! You are the smartest human alive!")
+    } else {
+        console.log("Good try! The computer got you this time. Try again soon!")
+    }
 }
 
 
