@@ -1,0 +1,96 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    color: white;
+    background-color: black
+}
+
+#title {
+    font-size: 60px;
+    margin: 20px 0;
+}
+
+h2 {
+    font-size: 35px;
+    margin: 20px 0;
+}
+
+
+.gameHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.gameMain {
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.gamePicture {
+    height: 230px;
+    width: 230px;
+    margin: 0 20px;
+    border-style: solid;
+    padding: 10px;
+    background-color: white;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+}
+
+.players {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.you,
+.computer {
+    padding: 0 20px;
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.youHead,
+.computerHead {
+    display: flex;
+    justify-content: center;
+}
+
+.yourPoints,
+.computerPoints {
+    display: flex;
+    padding: 10px 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultsContainer {
+    margin: auto;
+    display: flex;
+}
+
+.gameFooter {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 15px;
+    font-weight: 300;
+}
+
+.gamePicture:hover{
+    border-color: gold;
+    transform: scale(1.1);
+    
+}
