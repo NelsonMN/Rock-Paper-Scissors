@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,13 +18,13 @@
 
     <div class="gameMain">
         <div class="rock">
-            <img class="gamePicture" src="images/landslide.png" alt="rock image">
+            <img class="pictureRock" src="images/landslide.png" alt="rock image">
         </div>
         <div class="paper">
-            <img class="gamePicture" src="images/send.png" alt="paper image">
+            <img class="picturePaper" src="images/send.png" alt="paper image">
         </div>
         <div class="scissors">
-            <img class="gamePicture" src="images/scissors.png" alt="scissors image">
+            <img class="pictureScissors" src="images/scissors.png" alt="scissors image">
         </div>
     </div>
 
@@ -34,13 +34,13 @@
             <div class="you">
                 <h2 class="youHead">YOU</h2>
                 <div class="yourPoints">
-                    <h2>0</h2>
+                    <h2 class="yourPoints yourScore">0</h2>
                 </div>
             </div>
             <div class="computer">
-                <h2>COMPUTER</h2>
+                <h2 class="computerHead">COMPUTER</h2>
                 <div class="computerPoints">
-                    <h2 class="computerHead">0</h2>
+                    <h2 class="computerPoints computerScore">0</h2>
                 </div>
             </div>
         </div>
@@ -52,9 +52,7 @@
     </div>
 
     
-    <div class="gameFooter">
-        Created by NelsonMN
-    </div>
+    <div class="gameFooter">Created by NelsonMN</div>
     
 </body>
 </html>

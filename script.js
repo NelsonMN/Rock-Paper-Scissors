@@ -5,25 +5,21 @@ function computerPlay() {
 
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
     let drawPrompt = "Draw! Try again!";
     if (playerSelection === computerSelection) {
-        return drawPrompt;
+        result.textContent = drawPrompt;
     } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        return "You Win! Rock beats Scissors";
+        result.textContent = "You Win! Rock beats Scissors";
     } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        return "You Lose! Paper beats Rock";
+        result.textContent = "You Lose! Paper beats Rock";
     } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        return "You Win! Paper beats Rock";
+        result.textContent = "You Win! Paper beats Rock";
     } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        return "You Lose! Scissors beats Paper";
+        result.textContent = "You Lose! Scissors beats Paper";
     } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        return "You Win! Scissors beats Paper";
+        result.textContent = "You Win! Scissors beats Paper";
     } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        return "You Lose! Rock beats Scissors";
-    } else {
-        return "Something has gone terribly wrong.";
+        result.textContent = "You Lose! Rock beats Scissors";
     }
 }
 
@@ -39,6 +35,7 @@ function playRound(playerSelection, computerSelection) {
 // When while loop is over winner need to display winner:
 // if playerCount = 5 => player wins
 // else if computerCount = 5 => computer wins
+
 
 function game() {
     let playerCount = 0;
@@ -67,3 +64,30 @@ function game() {
         console.log("Good try! The computer got you this time. Try again soon!")
     }
 }
+
+// to grab result container
+const result = document.querySelector('.resultsContainer')
+
+// clicking rock
+const rock = document.querySelector('.pictureRock');
+rock.addEventListener('click', () => {
+    const playerSelection = 'rock';
+    const computerSelection = computerPlay().toLowerCase();
+    playRound(playerSelection, computerSelection)
+})
+
+// clicking paper
+const paper = document.querySelector('.picturePaper');
+paper.addEventListener('click', () => {
+    const playerSelection = 'paper';
+    const computerSelection = computerPlay().toLowerCase();
+    playRound(playerSelection, computerSelection)
+})
+
+// clicking scissors
+const scissors = document.querySelector('.pictureScissors');
+scissors.addEventListener('click', () => {
+    const playerSelection = 'scissors';
+    computerSelection = computerPlay().toLowerCase();
+    playRound(playerSelection, computerSelection)
+})

@@ -31,7 +31,9 @@ h2 {
     padding-top: 50px;
 }
 
-.gamePicture {
+.pictureRock,
+.picturePaper,
+.pictureScissors {
     height: 230px;
     width: 230px;
     margin: 0 20px;
@@ -79,6 +81,7 @@ h2 {
 .resultsContainer {
     margin: auto;
     display: flex;
+    font-size: 25px;
 }
 
 .gameFooter {
@@ -89,8 +92,9 @@ h2 {
     font-weight: 300;
 }
 
-.gamePicture:hover{
+.pictureRock:hover,
+.picturePaper:hover,
+.pictureScissors:hover{
     border-color: gold;
     transform: scale(1.1);
-    
 }
