@@ -82,6 +82,8 @@ h2 {
     margin: auto;
     display: flex;
     font-size: 25px;
+    justify-content: center;
+    align-content: center;
 }
 
 .gameFooter {
