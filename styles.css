@@ -73,14 +73,14 @@ h2 {
 .yourPoints,
 .computerPoints {
     display: flex;
-    padding: 10px 30px;
     justify-content: center;
     align-items: center;
 }
 
-.resultsContainer {
+.results {
     margin: auto;
     display: flex;
+    flex-direction: column;
     font-size: 25px;
     justify-content: center;
     align-content: center;
@@ -99,4 +99,31 @@ h2 {
 .pictureScissors:hover{
     border-color: gold;
     transform: scale(1.1);
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: gold;
+}
+
+.playAgain {
+    padding: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.again {
+    padding: 10px 15px;
+    background-color: white;
+    visibility: hidden;
+}
+
+.resultsContainer {
+    display: flex;
+    align-items: center;
 }

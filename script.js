@@ -1,93 +1,87 @@
+// to grab your score container
+const humanScore = document.querySelector('.yourPoints.yourScore');
+
+// to grab computer's score container
+const compScore = document.querySelector('.computerPoints.computerScore');
+
+// to grab result container
+const result = document.querySelector('.resultsContainer');
+
+
 function computerPlay() {
     let gameMoves = ['Rock', 'Paper', 'Scissors'];
     return gameMoves[Math.floor(Math.random() * gameMoves.length)]
 }
 
+let yourScore = 0
+let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
+    computerSelection = computerSelection.toLowerCase()
     let drawPrompt = "Draw! Try again!";
-    if (playerSelection === computerSelection) {
-        result.textContent = drawPrompt;
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-        result.textContent = "You Win! Rock beats Scissors";
-    } else if (playerSelection === 'rock' && computerSelection === 'paper') {
-        result.textContent = "You Lose! Paper beats Rock";
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-        result.textContent = "You Win! Paper beats Rock";
-    } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
-        result.textContent = "You Lose! Scissors beats Paper";
-    } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-        result.textContent = "You Win! Scissors beats Paper";
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
-        result.textContent = "You Lose! Rock beats Scissors";
+    if (yourScore < 5 && computerScore < 5) {
+        if (playerSelection === computerSelection) {
+            result.textContent = drawPrompt;
+        } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+            result.textContent = "You Win! Rock beats Scissors";
+            humanScore.textContent = (yourScore += 1);
+        } else if (playerSelection === 'rock' && computerSelection === 'paper') {
+            result.textContent = "You Lose! Paper beats Rock";
+            compScore.textContent = (computerScore += 1);
+        } else if (playerSelection === 'paper' && computerSelection === 'rock') {
+            result.textContent = "You Win! Paper beats Rock";
+            humanScore.textContent = (yourScore += 1);
+        } else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+            result.textContent = "You Lose! Scissors beats Paper";
+            compScore.textContent = (computerScore += 1);
+        } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+            result.textContent = "You Win! Scissors beats Paper";
+            humanScore.textContent = (yourScore += 1);
+        } else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+            result.textContent = "You Lose! Rock beats Scissors";
+            compScore.textContent = (computerScore += 1);
+    }}
+    if (yourScore == 5) {
+        result.textContent = "Congratulations! You beat the computer! You are the smartest human alive!"
+        button.style.visibility = 'visible';
+    } else if (computerScore == 5) {
+        result.textContent = "Good try! The computer got you this time. Try again soon!"
+        button.style.visibility = 'visible';
     }
 }
 
-
-// game function: -> while loop
-// establish counter for who is winning (terms of winning: first person to 5)
-    // Player Score: 0, Computer Score :0
-// ask player for selection:
-// get computer selection
-// playRound function
-// display winner and increase counter by 1
-
-// When while loop is over winner need to display winner:
-// if playerCount = 5 => player wins
-// else if computerCount = 5 => computer wins
-
-
-function game() {
-    let playerCount = 0;
-    let computerCount = 0;
-
-    while (playerCount < 5 && computerCount < 5) {
-        let playerSelection = prompt("Which do you choose: Rock, Paper, or Scissors");
-        let computerSelection = computerPlay();
-        let result = playRound(playerSelection, computerSelection);
-        console.log(result)
-
-        if (result.startsWith("You Win")) {  // check if there is a starts with
-            playerCount += 1;
-        } else if (result.startsWith("You Lose")) {
-            computerCount += 1;
-        }
-         if (playerCount < 5 && computerCount < 5) {
-             console.log(`The current score is ${playerCount}:${computerCount}. Keep your head in the game!`);
-        } else {
-            console.log(`The final score is ${playerCount}:${computerCount}`);
-        }
-    }
-    if (playerCount === 5) {
-        console.log("Congratulations! You beat the computer! You are the smartest human alive!")
-    } else {
-        console.log("Good try! The computer got you this time. Try again soon!")
-    }
-}
-
-// to grab result container
-const result = document.querySelector('.resultsContainer')
 
 // clicking rock
 const rock = document.querySelector('.pictureRock');
 rock.addEventListener('click', () => {
-    const playerSelection = 'rock';
-    const computerSelection = computerPlay().toLowerCase();
+    playerSelection = 'rock';
+    computerSelection = computerPlay()
     playRound(playerSelection, computerSelection)
 })
 
 // clicking paper
 const paper = document.querySelector('.picturePaper');
 paper.addEventListener('click', () => {
-    const playerSelection = 'paper';
-    const computerSelection = computerPlay().toLowerCase();
+    playerSelection = 'paper';
+    computerSelection = computerPlay()
     playRound(playerSelection, computerSelection)
 })
 
 // clicking scissors
 const scissors = document.querySelector('.pictureScissors');
 scissors.addEventListener('click', () => {
-    const playerSelection = 'scissors';
-    computerSelection = computerPlay().toLowerCase();
+    playerSelection = 'scissors';
+    computerSelection = computerPlay()
     playRound(playerSelection, computerSelection)
+})
+
+// clicking button
+const button = document.querySelector('.again');
+button.addEventListener('click', () => {
+    yourScore = 0;
+    humanScore.textContent = yourScore;
+    computerScore = 0;
+    compScore.textContent = computerScore;
+    result.textContent = "";
+    button.style.visibility = 'hidden';
 })
